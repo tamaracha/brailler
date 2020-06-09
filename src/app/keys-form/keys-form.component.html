@@ -1,0 +1,58 @@
+<form #keysForm="ngForm">
+<mat-grid-list cols="8" rowHeight="1:1">
+  <mat-grid-tile>
+<label for="dot7">⡀</label>
+  </mat-grid-tile>
+  <mat-grid-tile>
+<label for="dot3">⠄</label>
+  </mat-grid-tile>
+  <mat-grid-tile>
+<label for="dot2">⠂</label>
+  </mat-grid-tile>
+  <mat-grid-tile>
+<label for="dot1">⠁</label>
+  </mat-grid-tile>
+  <mat-grid-tile>
+  <span>⠀</span>
+  </mat-grid-tile>
+  <mat-grid-tile>
+<label for="dot4">⠈</label>
+  </mat-grid-tile>
+  <mat-grid-tile>
+<label for="dot5">⠐</label>
+  </mat-grid-tile>
+  <mat-grid-tile>
+<label for="dot6">⠠</label>
+  </mat-grid-tile>
+  <mat-grid-tile>
+<label for="dot8">⢀</label>
+  </mat-grid-tile>
+  <mat-grid-tile>
+<input type="text" id="dot7" name="dot7" minlength="1" maxlength="1" required [(ngModel)]="dots[6]"/>
+  </mat-grid-tile>
+  <mat-grid-tile>
+<input type="text" id="dot3" name="dot3" minlength="1" maxlength="1" required [(ngModel)]="dots[2]"/>
+  </mat-grid-tile>
+  <mat-grid-tile>
+<input type="text" name="dot2" id="dot2" minlength="1" maxlength="1" required [(ngModel)]="dots[1]"/>
+  </mat-grid-tile>
+  <mat-grid-tile>
+<input type="text" name="dot1" id="dot1" minlength="1" maxlength="1" required [(ngModel)]="dots[0]"/>
+  </mat-grid-tile>
+  <mat-grid-tile>
+  <span>␣</span>
+  </mat-grid-tile>
+  <mat-grid-tile>
+<input type="text" id="dot4" name="dot4" minlength="1" maxlength="1" required [(ngModel)]="dots[3]"/>
+  </mat-grid-tile>
+  <mat-grid-tile>
+<input type="text" id="dot5" name="dot5" minlength="1" maxlength="1" required [(ngModel)]="dots[4]"/>
+  </mat-grid-tile>
+  <mat-grid-tile>
+<input type="text" id="dot6" name="dot6" minlength="1" maxlength="1" required [(ngModel)]="dots[5]"/>
+  </mat-grid-tile>
+  <mat-grid-tile>
+<input type="text" id="dot8" name="dot8" minlength="1" maxlength="1" required [(ngModel)]="dots[7]"/>
+  </mat-grid-tile>
+</mat-grid-list>
+</form>
