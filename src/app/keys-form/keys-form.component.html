@@ -1,31 +1,31 @@
-<form #keysForm="ngForm">
-<mat-grid-list cols="8" rowHeight="1:1">
+<form #keysForm="ngForm" id="keysform">
+<mat-grid-list cols="9" rowHeight="1:1">
   <mat-grid-tile>
-<label for="dot7">⡀</label>
+<label class="braille" for="dot7">⡀</label>
   </mat-grid-tile>
   <mat-grid-tile>
-<label for="dot3">⠄</label>
+<label class="braille" for="dot3">⠄</label>
   </mat-grid-tile>
   <mat-grid-tile>
-<label for="dot2">⠂</label>
+<label class="braille" for="dot2">⠂</label>
   </mat-grid-tile>
   <mat-grid-tile>
-<label for="dot1">⠁</label>
+<label class="braille" for="dot1">⠁</label>
   </mat-grid-tile>
   <mat-grid-tile>
   <span>⠀</span>
   </mat-grid-tile>
   <mat-grid-tile>
-<label for="dot4">⠈</label>
+<label class="braille" for="dot4">⠈</label>
   </mat-grid-tile>
   <mat-grid-tile>
-<label for="dot5">⠐</label>
+<label class="braille" for="dot5">⠐</label>
   </mat-grid-tile>
   <mat-grid-tile>
-<label for="dot6">⠠</label>
+<label class="braille" for="dot6">⠠</label>
   </mat-grid-tile>
   <mat-grid-tile>
-<label for="dot8">⢀</label>
+<label class="braille" for="dot8">⢀</label>
   </mat-grid-tile>
   <mat-grid-tile>
 <input type="text" id="dot7" name="dot7" minlength="1" maxlength="1" required [(ngModel)]="dots[6]"/>

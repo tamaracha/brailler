@@ -1,0 +1,12 @@
+#keysform {
+  width: 20em;
+}
+.braille {
+  border-style: dashed;
+  border-color: light gray;
+  border-width: thin;
+  padding: 0;
+}
+input {
+  width: 1em;
+}
