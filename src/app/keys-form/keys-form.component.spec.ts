@@ -1,25 +1,26 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+/* eslint-env jasmine */
+import { async, ComponentFixture, TestBed } from '@angular/core/testing'
 
-import { KeysFormComponent } from './keys-form.component';
+import { KeysFormComponent } from './keys-form.component'
 
 describe('KeysFormComponent', () => {
-  let component: KeysFormComponent;
-  let fixture: ComponentFixture<KeysFormComponent>;
+  let component: KeysFormComponent
+  let fixture: ComponentFixture<KeysFormComponent>
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ KeysFormComponent ]
+      declarations: [KeysFormComponent]
     })
-    .compileComponents();
-  }));
+      .compileComponents()
+  }))
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(KeysFormComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    fixture = TestBed.createComponent(KeysFormComponent)
+    component = fixture.componentInstance
+    fixture.detectChanges()
+  })
 
   it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+    expect(component).toBeTruthy()
+  })
+})
