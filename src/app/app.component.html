@@ -1,5 +1,30 @@
-<h1>{{title}}</h1>
-<h2>Keys</h2>
-<app-keys-form [dots]="braille_dots"></app-keys-form>
-<h2>Braille</h2>
-<textarea #brl [(ngModel)]="input" cols="80" rows="20" autofocus></textarea>
+<div style="text-align: center;">
+  <h1>{{ title }}</h1>
+</div>
+<mat-toolbar>
+  <mat-toolbar-row>
+    <p>Here you can adjust the keys you want to produce braille dots with</p>
+  </mat-toolbar-row>
+  <mat-toolbar-row>
+    <app-keys-form [dots]="braille_dots"></app-keys-form>
+  </mat-toolbar-row>
+</mat-toolbar>
+<form>
+  <mat-form-field appearance="outline" floatLabel="never" color="primary">
+    <mat-label>Enter Braille here</mat-label>
+    <textarea
+      matInput
+      #brl
+      [(ngModel)]="input"
+      [ngModelOptions]="{ standalone: true }"
+      cols="80"
+      rows="20"
+      autofocus
+      placeholder="⠃⠗⠁⠊⠇⠇⠑"
+    ></textarea>
+    <mat-hint
+      >Compose braille characters by simultaniously pressing the dot
+      keys.</mat-hint
+    >
+  </mat-form-field>
+</form>
