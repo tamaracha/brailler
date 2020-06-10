@@ -1,12 +1,17 @@
 /* eslint-env jasmine */
 import { TestBed, async } from '@angular/core/testing'
+import { FormsModule } from '@angular/forms'
+import { MatGridListModule } from '@angular/material/grid-list'
 import { AppComponent } from './app.component'
+import { KeysFormComponent } from './keys-form/keys-form.component'
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [FormsModule, MatGridListModule],
       declarations: [
-        AppComponent
+        AppComponent,
+        KeysFormComponent
       ]
     }).compileComponents()
   }))
@@ -17,16 +22,9 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy()
   })
 
-  it('should have as title \'brailer\'', () => {
+  it('should have as title \'brailler\'', () => {
     const fixture = TestBed.createComponent(AppComponent)
     const app = fixture.componentInstance
-    expect(app.title).toEqual('brailer')
-  })
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent)
-    fixture.detectChanges()
-    const compiled = fixture.nativeElement
-    expect(compiled.querySelector('.content span').textContent).toContain('brailer app is running!')
+    expect(app.title).toEqual('Brailler')
   })
 })
