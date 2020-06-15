@@ -1,14 +1,13 @@
-/* eslint-env jasmine */
 import { TestBed } from '@angular/core/testing'
 
-import { BrailleService } from './braille.service'
+import { KeyConfigService } from './key-config.service'
 
-describe('BrailleService', () => {
-  let service: BrailleService
+describe('KeyConfigService', () => {
+  let service: KeyConfigService
 
   beforeEach(() => {
     TestBed.configureTestingModule({})
-    service = TestBed.inject(BrailleService)
+    service = TestBed.inject(KeyConfigService)
   })
 
   it('should be created', () => {

@@ -1,31 +1,14 @@
-<div style="text-align: center;">
-  <h1>{{ title }}</h1>
-  <h2>A mechanical braille writer for your computer keyboard</h2>
+<div fxLayout="column">
+  <header>
+    <h1>{{ title }}</h1>
+    <p>A mechanical braille writer for your computer keyboard</p>
+  </header>
+  <nav>
+    <h2>Keyboard Setup</h2>
+    <app-keys-form [dots]="brailleDots"></app-keys-form>
+  </nav>
+  <main>
+    <h2>Start Typing</h2>
+    <app-braille-form></app-braille-form>
+  </main>
 </div>
-<mat-toolbar>
-  <mat-toolbar-row>
-    <p>Here you can adjust the keys you want to produce braille dots with</p>
-  </mat-toolbar-row>
-  <mat-toolbar-row>
-    <app-keys-form [dots]="braille_dots"></app-keys-form>
-  </mat-toolbar-row>
-</mat-toolbar>
-<form>
-  <mat-form-field appearance="outline" floatLabel="never" color="primary">
-    <mat-label>Enter Braille here</mat-label>
-    <textarea
-      matInput
-      #brl
-      [(ngModel)]="input"
-      [ngModelOptions]="{ standalone: true }"
-      cols="80"
-      rows="20"
-      autofocus
-      placeholder="⠃⠗⠁⠊⠇⠇⠑"
-    ></textarea>
-    <mat-hint
-      >Compose braille characters by simultaniously pressing the dot
-      keys.</mat-hint
-    >
-  </mat-form-field>
-</form>

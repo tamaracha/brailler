@@ -1,28 +1,30 @@
-import { BrowserModule } from '@angular/platform-browser'
 import { NgModule } from '@angular/core'
+import { BrowserModule } from '@angular/platform-browser'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { FormsModule } from '@angular/forms'
-import { FlexLayoutModule } from '@angular/flex-layout'
-import { MatGridListModule } from '@angular/material/grid-list'
-import { MatToolbarModule } from '@angular/material/toolbar'
-import { MatInputModule } from '@angular/material/input'
 
+import { MaterialModule } from './material.module'
 import { AppComponent } from './app.component'
 import { KeysFormComponent } from './keys-form/keys-form.component'
-import { NoopAnimationsModule } from '@angular/platform-browser/animations'
+import { BrailleDirective } from './braille.directive'
+import { BrailleFormComponent } from './braille-form/braille-form.component'
+import { KeyInputDirective } from './key-input.directive'
+import { KeyPipe } from './key.pipe'
 
 @NgModule({
   declarations: [
     AppComponent,
-    KeysFormComponent
+    KeysFormComponent,
+    BrailleDirective,
+    BrailleFormComponent,
+    KeyInputDirective,
+    KeyPipe
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    FlexLayoutModule,
-    MatGridListModule,
-    MatInputModule,
-    MatToolbarModule,
-    NoopAnimationsModule
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

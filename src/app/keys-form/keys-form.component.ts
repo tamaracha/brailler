@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core'
 
 @Component({
   selector: 'app-keys-form',
@@ -6,11 +6,8 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./keys-form.component.css']
 })
 export class KeysFormComponent implements OnInit {
-
   @Input() dots: string[]
-  constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit (): void {
   }
-
 }

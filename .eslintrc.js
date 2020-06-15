@@ -64,13 +64,15 @@ module.exports = {
         '@angular-eslint/component-class-suffix': 'error',
         '@angular-eslint/contextual-lifecycle': 'error',
         '@angular-eslint/directive-class-suffix': 'error',
+        /*
         '@angular-eslint/directive-selector': [
           'error',
-          { type: 'attribute', prefix: 'fah', style: 'camelCase' },
+          { type: 'attribute', prefix: 'app', style: 'camelCase' },
         ],
+        */
         '@angular-eslint/component-selector': [
           'error',
-          { type: 'element', prefix: ['fah', 'app'], style: 'kebab-case' },
+          { type: 'element', prefix: ['app', 'app'], style: 'kebab-case' },
         ],
         '@angular-eslint/no-conflicting-lifecycle': 'error',
         '@angular-eslint/no-host-metadata-property': 'error',
