@@ -3,6 +3,9 @@ module.exports = {
     {
       extends: "standard",
       files: ['*.ts', '*.js'],
+      env: {
+        browser: true
+      },
       parser: '@typescript-eslint/parser',
       parserOptions: {
         ecmaVersion: 2020,
