@@ -7,12 +7,13 @@ import { KeyConfigService } from './key-config.service'
 })
 export class BrailleDirective {
   private keydowns: Set<string> = new Set()
-  constructor (private el: ElementRef, private keyConfig: KeyConfigService) { }
+  constructor (private el: ElementRef, private keyConfig: KeyConfigService) {}
+
   @HostListener('keydown', ['$event'])
   onKeydown (event: KeyboardEvent) {
-    if (this.hasModifyers(event)) { return }
+    if (this.hasModifyers(event) || this.isControl(event) || this.isArrow(event)) { return }
+    event.preventDefault()
     if (this.isBrailleKey(event)) {
-      event.preventDefault()
       this.keydowns.add(event.key)
     }
   }
@@ -22,20 +23,15 @@ export class BrailleDirective {
     if (this.keydowns.has(event.key)) {
       const dots = this.keyConfig.dots(Array.from(this.keydowns))
       this.insert(brailleChar(dots))
+      this.keydowns.delete(event.key)
       this.keydowns.clear()
     }
   }
 
   private insert (char: string) {
     const n = this.el.nativeElement
-    const startPos = n.selectionStart
-    n.value = [
-      n.value.substring(0, startPos),
-      char,
-      n.value.substring(n.selectionEnd)
-    ].join('')
-    n.selectionStart = startPos + char.length
-    n.selectionEnd = startPos + char.length
+    n.setRangeText(char, n.selectionStart, n.selectionEnd, 'end')
+    n.dispatchEvent(new Event('input'))
   }
 
   private isBrailleKey (event: KeyboardEvent) {
@@ -44,5 +40,14 @@ export class BrailleDirective {
 
   private hasModifyers (event: KeyboardEvent): boolean {
     return event.metaKey || event.ctrlKey
+  }
+
+  private isArrow (event: KeyboardEvent) {
+    return event.key.startsWith('Arrow')
+  }
+
+  private isControl (event: KeyboardEvent) {
+    return event.key === 'Enter' || event.key === 'Backspace' ||
+    event.key === 'Tab'
   }
 }
