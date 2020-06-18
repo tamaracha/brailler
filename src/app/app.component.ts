@@ -7,5 +7,4 @@ import { Component } from '@angular/core'
 })
 export class AppComponent {
   title = 'Brailler';
-  brailleDots = ['a', 'e', 'i', 't', 'r', 'n', 'h', 's']
 }

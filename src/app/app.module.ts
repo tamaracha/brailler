@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import { FormsModule } from '@angular/forms'
+import { ReactiveFormsModule } from '@angular/forms'
 
 import { MaterialModule } from './material.module'
 import { AppComponent } from './app.component'
@@ -10,6 +10,7 @@ import { BrailleDirective } from './braille.directive'
 import { BrailleFormComponent } from './braille-form/braille-form.component'
 import { KeyInputDirective } from './key-input.directive'
 import { KeyPipe } from './key.pipe'
+import { SelectionModelDirective } from './selection-model.directive'
 
 @NgModule({
   declarations: [
@@ -18,11 +19,12 @@ import { KeyPipe } from './key.pipe'
     BrailleDirective,
     BrailleFormComponent,
     KeyInputDirective,
-    KeyPipe
+    KeyPipe,
+    SelectionModelDirective
   ],
   imports: [
     BrowserModule,
-    FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     MaterialModule
   ],

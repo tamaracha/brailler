@@ -34,23 +34,27 @@ export class KeyConfigService {
   }
 
   constructor () {
-    this.configure()
+    const map = this.load() || KeyConfigService.quertzMap()
+    this.update(map)
   }
 
-  configure () {
-    this.updateReverseMap()
+  getCurrent () {
+    return this.current
   }
 
-  load () {
-    const json = window.localStorage.getItem('key_config')
-    if (json) {
-      this.current = JSON.parse(json)
-    }
+  load (): KeyMap {
+    return JSON.parse(window.localStorage.getItem('key_config'))
   }
 
   save () {
     const json = JSON.stringify(this.current)
     window.localStorage.setItem('key_config', json)
+  }
+
+  update (map: KeyMap) {
+    this.current = map
+    this.updateReverseMap()
+    this.save()
   }
 
   updateReverseMap () {
