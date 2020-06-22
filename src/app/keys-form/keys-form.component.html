@@ -2,114 +2,64 @@
   <p>Here you can adjust the keys you want to produce braille dots with</p>
   <mat-grid-list cols="9" rowHeight="1:1">
     <mat-grid-tile>
-      <label class="braille" for="dot7">⡀</label>
+      <app-key-input
+        inputId="dot7"
+        label="⡀"
+        formControlName="dot7"
+      ></app-key-input>
     </mat-grid-tile>
     <mat-grid-tile>
-      <label class="braille" for="dot3">⠄</label>
+      <app-key-input
+        inputId="dot3"
+        label="⠄"
+        formControlName="dot3"
+      ></app-key-input>
     </mat-grid-tile>
     <mat-grid-tile>
-      <label class="braille" for="dot2">⠂</label>
+      <app-key-input
+        inputId="dot2"
+        label="⠂"
+        formControlName="dot2"
+      ></app-key-input>
     </mat-grid-tile>
     <mat-grid-tile>
-      <label class="braille" for="dot1">⠁</label>
+      <app-key-input
+        inputId="dot1"
+        label="⠁"
+        formControlName="dot1"
+      ></app-key-input>
     </mat-grid-tile>
     <mat-grid-tile>
       <span>⠀</span>
-    </mat-grid-tile>
-    <mat-grid-tile>
-      <label class="braille" for="dot4">⠈</label>
-    </mat-grid-tile>
-    <mat-grid-tile>
-      <label class="braille" for="dot5">⠐</label>
-    </mat-grid-tile>
-    <mat-grid-tile>
-      <label class="braille" for="dot6">⠠</label>
-    </mat-grid-tile>
-    <mat-grid-tile>
-      <label class="braille" for="dot8">⢀</label>
-    </mat-grid-tile>
-    <mat-grid-tile>
-      <input
-        type="text"
-        id="dot7"
-        formControlName="dot7"
-        minlength="1"
-        maxlength="1"
-        required
-      />
-    </mat-grid-tile>
-    <mat-grid-tile>
-      <input
-        type="text"
-        id="dot3"
-        formControlName="dot3"
-        minlength="1"
-        maxlength="1"
-        required
-      />
-    </mat-grid-tile>
-    <mat-grid-tile>
-      <input
-        type="text"
-        id="dot2"
-        formControlName="dot2"
-        minlength="1"
-        maxlength="1"
-        required
-      />
-    </mat-grid-tile>
-    <mat-grid-tile>
-      <input
-        type="text"
-        id="dot1"
-        formControlName="dot1"
-        minlength="1"
-        maxlength="1"
-        required
-      />
-    </mat-grid-tile>
-    <mat-grid-tile>
       <span>␣</span>
     </mat-grid-tile>
     <mat-grid-tile>
-      <input
-        type="text"
-        id="dot4"
+      <app-key-input
+        inputId="dot4"
+        label="⠈"
         formControlName="dot4"
-        minlength="1"
-        maxlength="1"
-        required
-      />
+      ></app-key-input>
     </mat-grid-tile>
     <mat-grid-tile>
-      <input
-        type="text"
-        id="dot5"
+      <app-key-input
+        inputId="dot5"
+        label="⠐"
         formControlName="dot5"
-        minlength="1"
-        maxlength="1"
-        required
-      />
+      ></app-key-input>
     </mat-grid-tile>
     <mat-grid-tile>
-      <input
-        type="text"
-        id="dot6"
+      <app-key-input
+        inputId="dot6"
+        label="⠠"
         formControlName="dot6"
-        minlength="1"
-        maxlength="1"
-        required
-      />
+      ></app-key-input>
     </mat-grid-tile>
     <mat-grid-tile>
-      <input
-        type="text"
-        id="dot8"
+      <app-key-input
+        inputId="dot8"
+        label="⢀"
         formControlName="dot8"
-        minlength="1"
-        maxlength="1"
-        required
-      />
+      ></app-key-input>
     </mat-grid-tile>
   </mat-grid-list>
 </form>

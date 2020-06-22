@@ -1,0 +1,11 @@
+<label class="braille" [for]="inputId" [textContent]="label"></label><br />
+<input
+  type="text"
+  minlength="1"
+  maxlength="1"
+  required
+  [disabled]="disabled"
+  [id]="inputId"
+  [value]="value"
+  (input)="setValue($event.data)"
+/>
