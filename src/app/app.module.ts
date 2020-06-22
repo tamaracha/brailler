@@ -8,9 +8,8 @@ import { AppComponent } from './app.component'
 import { KeysFormComponent } from './keys-form/keys-form.component'
 import { BrailleDirective } from './braille.directive'
 import { BrailleFormComponent } from './braille-form/braille-form.component'
-import { KeyInputDirective } from './key-input.directive'
-import { KeyPipe } from './key.pipe'
 import { SelectionModelDirective } from './selection-model.directive'
+import { KeyInputComponent } from './key-input/key-input.component'
 
 @NgModule({
   declarations: [
@@ -18,9 +17,8 @@ import { SelectionModelDirective } from './selection-model.directive'
     KeysFormComponent,
     BrailleDirective,
     BrailleFormComponent,
-    KeyInputDirective,
-    KeyPipe,
-    SelectionModelDirective
+    SelectionModelDirective,
+    KeyInputComponent
   ],
   imports: [
     BrowserModule,
