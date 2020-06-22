@@ -1,6 +1,5 @@
 import { Component, Input, forwardRef } from '@angular/core'
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
-import { KeyNames } from '../key-names.enum'
 
 @Component({
   providers: [
@@ -20,8 +19,6 @@ export class KeyInputComponent implements ControlValueAccessor {
   key = ''
   disabled = false
   get value () {
-    const name = KeyNames[this.key]
-    if (name) { return name }
     return this.key
   }
 

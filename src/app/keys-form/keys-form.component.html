@@ -1,6 +1,6 @@
 <form [formGroup]="keysForm" name="keysForm" id="keysform">
   <p>Here you can adjust the keys you want to produce braille dots with</p>
-  <mat-grid-list cols="9" rowHeight="1:1">
+  <mat-grid-list cols="9" rowHeight="2:1">
     <mat-grid-tile>
       <app-key-input
         inputId="dot7"
@@ -30,7 +30,7 @@
       ></app-key-input>
     </mat-grid-tile>
     <mat-grid-tile>
-      <span>⠀</span>
+      <span>⠀</span><br />
       <span>␣</span>
     </mat-grid-tile>
     <mat-grid-tile>
