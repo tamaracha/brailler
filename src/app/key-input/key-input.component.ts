@@ -1,10 +1,6 @@
 import { Component, Input, forwardRef } from '@angular/core'
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
-
-const keys: { name: string, value: string }[] = [
-  { name: '🄰', value: 'a' },
-  { name: '🄱', value: 'b' }
-]
+import { KeyNames } from '../key-names.enum'
 
 @Component({
   providers: [
@@ -24,8 +20,9 @@ export class KeyInputComponent implements ControlValueAccessor {
   key = ''
   disabled = false
   get value () {
-    const key = keys.find(k => k.value === this.key)
-    return key ? key.name : this.key
+    const name = KeyNames[this.key]
+    if (name) { return name }
+    return this.key
   }
 
   private onChange: (string) => void = () => {}
