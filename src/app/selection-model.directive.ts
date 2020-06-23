@@ -29,6 +29,8 @@ export class SelectionModelDirective implements OnInit, OnDestroy {
   }
 
   ngOnDestroy () {
-    this.selectionModel.removeOnChangesHandler()
+    if (this.selectionModel) {
+      this.selectionModel.removeOnChangesHandler()
+    }
   }
 }

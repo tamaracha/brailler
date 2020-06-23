@@ -1,19 +1,27 @@
 /* eslint-env jasmine */
 import { TestBed, async } from '@angular/core/testing'
-import { FormsModule } from '@angular/forms'
-import { MatToolbarModule } from '@angular/material/toolbar'
+import { ReactiveFormsModule } from '@angular/forms'
 import { MatInputModule } from '@angular/material/input'
-import { MatGridListModule } from '@angular/material/grid-list'
 import { AppComponent } from './app.component'
+import { KeyConfigService } from './key-config.service'
 import { KeysFormComponent } from './keys-form/keys-form.component'
+import { KeyInputComponent } from './key-input/key-input.component'
+import { BrailleFormComponent } from './braille-form/braille-form.component'
+import { BrailleDirective } from './braille.directive'
+import { SelectionModelDirective } from './selection-model.directive'
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [FormsModule, MatGridListModule, MatInputModule, MatToolbarModule],
+      imports: [ReactiveFormsModule, MatInputModule],
+      providers: [KeyConfigService],
       declarations: [
         AppComponent,
-        KeysFormComponent
+        KeysFormComponent,
+        KeyInputComponent,
+        BrailleFormComponent,
+        BrailleDirective,
+        SelectionModelDirective
       ]
     }).compileComponents()
   }))

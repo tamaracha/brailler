@@ -1,9 +1,10 @@
 /* eslint-env jasmine */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing'
-import { FormsModule } from '@angular/forms'
-import { MatGridListModule } from '@angular/material/grid-list'
+import { ReactiveFormsModule } from '@angular/forms'
 
 import { KeysFormComponent } from './keys-form.component'
+import { KeyInputComponent } from '../key-input/key-input.component'
+import { KeyConfigService } from '../key-config.service'
 
 describe('KeysFormComponent', () => {
   let component: KeysFormComponent
@@ -11,8 +12,9 @@ describe('KeysFormComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [FormsModule, MatGridListModule],
-      declarations: [KeysFormComponent]
+      imports: [ReactiveFormsModule],
+      providers: [KeyConfigService],
+      declarations: [KeysFormComponent, KeyInputComponent]
     })
       .compileComponents()
   }))
@@ -20,7 +22,6 @@ describe('KeysFormComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(KeysFormComponent)
     component = fixture.componentInstance
-    component.dots = ['h', 'i', 'e', 'a', 't', 'r', 'n', 's']
     fixture.detectChanges()
   })
 
