@@ -1,3 +1,8 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .braille {
   border-style: dashed;
   border-color: light gray;

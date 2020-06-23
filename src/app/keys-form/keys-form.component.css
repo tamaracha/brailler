@@ -1,3 +1,7 @@
 #keysform {
   width: 20em;
 }
+fieldset {
+  display: flex;
+  flex-flow: row nowrap;
+}
