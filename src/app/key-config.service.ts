@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core'
-import { BrailleDots } from './braille-dots.enum'
+import { BrailleChar } from './braille-char'
 
 interface KeyMap {
-  space: string
+  empty: string
   dot1: string
   dot2: string
   dot3: string
@@ -17,11 +17,11 @@ interface KeyMap {
   providedIn: 'root'
 })
 export class KeyConfigService {
-  private current: KeyMap = KeyConfigService.quertzMap()
-  private reverseMap = new Map<string, number>()
+  #current: KeyMap = KeyConfigService.quertzMap()
+  #reverseMap = new Map<string, BrailleChar>()
   static quertzMap (): KeyMap {
     return {
-      space: ' ',
+      empty: ' ',
       dot1: 'f',
       dot2: 'd',
       dot3: 's',
@@ -38,8 +38,8 @@ export class KeyConfigService {
     this.update(map)
   }
 
-  getCurrent () {
-    return this.current
+  get current () {
+    return this.#current
   }
 
   load (): KeyMap {
@@ -52,32 +52,32 @@ export class KeyConfigService {
   }
 
   update (map: KeyMap) {
-    this.current = map
+    Object.assign(this.#current, map)
     this.updateReverseMap()
     this.save()
   }
 
   updateReverseMap () {
-    this.reverseMap.clear()
-    Object.entries(this.current)
-      .forEach(([k, v]) => this.reverseMap.set(v, BrailleDots[k]))
+    this.#reverseMap.clear()
+    Object.entries(this.#current)
+      .forEach(([k, v]) => this.#reverseMap.set(v, BrailleChar[k]))
   }
 
   set (dot: string, key: string) {
-    this.reverseMap.delete(this.current[dot])
+    this.#reverseMap.delete(this.current[dot])
     this.current[dot] = key
-    this.reverseMap.set(key, BrailleDots[dot])
+    this.#reverseMap.set(key, BrailleChar[dot])
   }
 
   hasKey (key: string) {
-    return this.reverseMap.has(key)
+    return this.#reverseMap.has(key)
   }
 
   dot (key: string) {
-    return this.reverseMap.get(key)
+    return this.#reverseMap.get(key)
   }
 
   dots (keys: string[]) {
-    return keys.map(key => this.dot(key))
+    return BrailleChar.combine(keys.map(key => this.dot(key)))
   }
 }

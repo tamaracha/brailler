@@ -12,7 +12,7 @@ export class KeysFormComponent implements OnDestroy {
   keysForm: FormGroup
   formSub: Subscription
   constructor (private fb: FormBuilder, private keyConfig: KeyConfigService) {
-    const keys = this.keyConfig.getCurrent()
+    const keys = this.keyConfig.current
     const formConfig = {}
     Object.entries(keys).forEach(([key, value]) => { formConfig[key] = [value] })
     this.keysForm = this.fb.group(formConfig)
