@@ -1,6 +1,7 @@
 import { Directive, ElementRef, HostListener } from '@angular/core'
 import { BrailleChar } from './braille-char'
 import { KeyConfigService } from './key-config.service'
+const controls = new Set(['Enter', 'Backspace', 'Delete', 'Tab', 'Home', 'End', 'Insert'])
 
 @Directive({
   selector: 'textarea[appBraille], input[appBraille type=text]'
@@ -55,7 +56,6 @@ export class BrailleDirective {
   }
 
   private isControl (event: KeyboardEvent) {
-    return event.key === 'Enter' || event.key === 'Backspace' ||
-    event.key === 'Tab'
+    return controls.has(event.key)
   }
 }
