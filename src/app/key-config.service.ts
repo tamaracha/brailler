@@ -43,7 +43,11 @@ export class KeyConfigService {
   }
 
   load (): KeyMap {
-    return JSON.parse(window.localStorage.getItem('key_config'))
+    const parsed = JSON.parse(window.localStorage.getItem('key_config'))
+    const keys = Object.keys(KeyConfigService.quertzMap())
+    Object.keys(parsed).filter(k => !keys.includes(k))
+      .forEach(k => delete parsed[k])
+    return parsed
   }
 
   save () {
