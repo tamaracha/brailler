@@ -1,5 +1,5 @@
 /* eslint-env jasmine */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing'
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing'
 import { ReactiveFormsModule } from '@angular/forms'
 
 import { KeysFormComponent } from './keys-form.component'
@@ -10,7 +10,7 @@ describe('KeysFormComponent', () => {
   let component: KeysFormComponent
   let fixture: ComponentFixture<KeysFormComponent>
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [ReactiveFormsModule],
       providers: [KeyConfigService],

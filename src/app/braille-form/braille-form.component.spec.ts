@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing'
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing'
 import { ReactiveFormsModule } from '@angular/forms'
 import { NoopAnimationsModule } from '@angular/platform-browser/animations'
 import { MatInputModule } from '@angular/material/input'
@@ -10,7 +10,7 @@ describe('BrailleFormComponent', () => {
   let component: BrailleFormComponent
   let fixture: ComponentFixture<BrailleFormComponent>
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [ReactiveFormsModule, NoopAnimationsModule, MatInputModule],
       declarations: [BrailleFormComponent, SelectionModelDirective]

@@ -1,5 +1,5 @@
 /* eslint-env jasmine */
-import { TestBed, async } from '@angular/core/testing'
+import { TestBed, waitForAsync } from '@angular/core/testing'
 import { ReactiveFormsModule } from '@angular/forms'
 import { MatInputModule } from '@angular/material/input'
 import { AppComponent } from './app.component'
@@ -11,7 +11,7 @@ import { BrailleDirective } from './braille.directive'
 import { SelectionModelDirective } from './selection-model.directive'
 
 describe('AppComponent', () => {
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [ReactiveFormsModule, MatInputModule],
       providers: [KeyConfigService],
