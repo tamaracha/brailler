@@ -18,31 +18,31 @@ export class KeyInputComponent implements ControlValueAccessor {
   @Input() inputId: string
   key = ''
   disabled = false
-  get value () {
+  get value() {
     return this.key
   }
 
   private onChange: (string) => void = () => {}
   private onTouched: Function = () => {}
-  setValue (value: string) {
+  setValue(value: string) {
     this.onTouched()
     this.key = value
     this.onChange(this.key)
   }
 
-  writeValue (key: string) {
+  writeValue(key: string) {
     this.key = key
   }
 
-  registerOnChange (fn: (string) => void) {
+  registerOnChange(fn: (string) => void) {
     this.onChange = fn
   }
 
-  registerOnTouched (fn: () => void) {
+  registerOnTouched(fn: () => void) {
     this.onTouched = fn
   }
 
-  setDisabledState (state: boolean) {
+  setDisabledState(state: boolean) {
     this.disabled = state
   }
 }

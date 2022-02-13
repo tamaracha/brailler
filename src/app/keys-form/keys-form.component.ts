@@ -11,16 +11,19 @@ import { KeyConfigService } from '../key-config.service'
 export class KeysFormComponent implements OnDestroy {
   keysForm: FormGroup
   formSub: Subscription
-  constructor (private fb: FormBuilder, private keyConfig: KeyConfigService) {
+  constructor(private fb: FormBuilder, private keyConfig: KeyConfigService) {
     const keys = this.keyConfig.current
     const formConfig = {}
-    Object.entries(keys).forEach(([key, value]) => { formConfig[key] = [value] })
+    Object.entries(keys).forEach(([key, value]) => {
+      formConfig[key] = [value]
+    })
     this.keysForm = this.fb.group(formConfig)
-    this.formSub = this.keysForm.valueChanges
-      .subscribe(value => this.keyConfig.update(value))
+    this.formSub = this.keysForm.valueChanges.subscribe((value) =>
+      this.keyConfig.update(value)
+    )
   }
 
-  ngOnDestroy (): void {
+  ngOnDestroy(): void {
     this.formSub.unsubscribe()
   }
 }

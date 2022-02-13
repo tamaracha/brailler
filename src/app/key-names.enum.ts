@@ -24,5 +24,5 @@ export enum KeyNames {
   w = '\u{1f146}',
   x = '\u{1f147}',
   y = '\u{1f148}',
-  z = '\u{1f149}',
+  z = '\u{1f149}'
 }

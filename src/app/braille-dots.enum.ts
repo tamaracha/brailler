@@ -10,7 +10,7 @@ export enum BrailleDots {
   dot8 = 1 << 7
 }
 
-export function brailleChar (from: number[]) {
+export function brailleChar(from: number[]) {
   const scalar = from.reduce((ac, i) => {
     return ac + i
   }, 10240)

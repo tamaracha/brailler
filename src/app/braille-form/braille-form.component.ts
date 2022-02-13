@@ -17,44 +17,43 @@ export class BrailleFormComponent implements OnInit, OnDestroy {
   })
 
   selectionModel = new SelectionModel({ start: 0, end: 0 })
-  values$ = this.brailleForm.valueChanges.pipe(
-    debounceTime(150)
-  )
-    .subscribe(
-      value => this.save(value.text)
-    )
+  values$ = this.brailleForm.valueChanges
+    .pipe(debounceTime(150))
+    .subscribe((value) => this.save(value.text))
 
-  ranges$ = this.selectionModel.getValueChanges().pipe(
-    debounceTime(150)
-  )
-    .subscribe(
-      range => this.saveSelection(range)
-    )
+  ranges$ = this.selectionModel
+    .getValueChanges()
+    .pipe(debounceTime(150))
+    .subscribe((range) => this.saveSelection(range))
 
-  ngOnInit (): void {
+  ngOnInit(): void {
     this.load()
     this.loadSelection()
   }
 
-  load () {
-    this.brailleForm.setValue({ text: window.localStorage.getItem('brailleText') })
+  load() {
+    this.brailleForm.setValue({
+      text: window.localStorage.getItem('brailleText')
+    })
   }
 
-  save (value: string) {
+  save(value: string) {
     window.localStorage.setItem('brailleText', value)
   }
 
-  loadSelection () {
+  loadSelection() {
     const range = JSON.parse(window.localStorage.getItem('selectionRange'))
-    if (!range) { return }
+    if (!range) {
+      return
+    }
     this.selectionModel.setRange(range)
   }
 
-  saveSelection (range: SelectionRange) {
+  saveSelection(range: SelectionRange) {
     window.localStorage.setItem('selectionRange', JSON.stringify(range))
   }
 
-  ngOnDestroy () {
+  ngOnDestroy() {
     this.values$.unsubscribe()
     this.ranges$.unsubscribe()
   }

@@ -10,14 +10,15 @@ describe('KeysFormComponent', () => {
   let component: KeysFormComponent
   let fixture: ComponentFixture<KeysFormComponent>
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      imports: [ReactiveFormsModule],
-      providers: [KeyConfigService],
-      declarations: [KeysFormComponent, KeyInputComponent]
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        imports: [ReactiveFormsModule],
+        providers: [KeyConfigService],
+        declarations: [KeysFormComponent, KeyInputComponent]
+      }).compileComponents()
     })
-      .compileComponents()
-  }))
+  )
 
   beforeEach(() => {
     fixture = TestBed.createComponent(KeysFormComponent)

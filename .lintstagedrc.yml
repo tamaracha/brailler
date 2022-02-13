@@ -1,0 +1,2 @@
+'*': 'prettier -w -u'
+'*.md': 'markdownlint-cli2'

@@ -10,13 +10,14 @@ describe('BrailleFormComponent', () => {
   let component: BrailleFormComponent
   let fixture: ComponentFixture<BrailleFormComponent>
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      imports: [ReactiveFormsModule, NoopAnimationsModule, MatInputModule],
-      declarations: [BrailleFormComponent, SelectionModelDirective]
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        imports: [ReactiveFormsModule, NoopAnimationsModule, MatInputModule],
+        declarations: [BrailleFormComponent, SelectionModelDirective]
+      }).compileComponents()
     })
-      .compileComponents()
-  }))
+  )
 
   beforeEach(() => {
     fixture = TestBed.createComponent(BrailleFormComponent)

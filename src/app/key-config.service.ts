@@ -19,7 +19,7 @@ interface KeyMap {
 export class KeyConfigService {
   #current: KeyMap = KeyConfigService.quertzMap()
   #reverseMap = new Map<string, BrailleChar>()
-  static quertzMap (): KeyMap {
+  static quertzMap(): KeyMap {
     return {
       empty: ' ',
       dot1: 'f',
@@ -33,59 +33,64 @@ export class KeyConfigService {
     }
   }
 
-  constructor () {
+  constructor() {
     const map = this.load() || KeyConfigService.quertzMap()
     this.update(map)
   }
 
-  get current () {
+  get current() {
     return this.#current
   }
 
-  load (): KeyMap {
+  load(): KeyMap {
     const defaultMap = KeyConfigService.quertzMap()
     const parsed = JSON.parse(window.localStorage.getItem('key_config'))
-    if (!parsed) { return defaultMap }
+    if (!parsed) {
+      return defaultMap
+    }
     const keys = Object.keys(defaultMap)
-    keys.forEach(k => {
+    keys.forEach((k) => {
       const value = parsed[k]
-      if (typeof value === 'string') { defaultMap[k] = value }
+      if (typeof value === 'string') {
+        defaultMap[k] = value
+      }
     })
     return defaultMap
   }
 
-  save () {
+  save() {
     const json = JSON.stringify(this.current)
     window.localStorage.setItem('key_config', json)
   }
 
-  update (map: KeyMap) {
+  update(map: KeyMap) {
     Object.assign(this.#current, map)
     this.updateReverseMap()
     this.save()
   }
 
-  updateReverseMap () {
+  updateReverseMap() {
     this.#reverseMap.clear()
-    Object.entries(this.#current)
-      .forEach(([k, v]) => this.#reverseMap.set(v, BrailleChar[k]))
+    Object.entries(this.#current).forEach(([k, v]) =>
+      this.#reverseMap.set(v, BrailleChar[k])
+    )
   }
 
-  set (dot: string, key: string) {
+  set(dot: string, key: string) {
     this.#reverseMap.delete(this.current[dot])
     this.current[dot] = key
     this.#reverseMap.set(key, BrailleChar[dot])
   }
 
-  hasKey (key: string) {
+  hasKey(key: string) {
     return this.#reverseMap.has(key)
   }
 
-  dot (key: string) {
+  dot(key: string) {
     return this.#reverseMap.get(key)
   }
 
-  dots (keys: string[]) {
-    return BrailleChar.combine(keys.map(key => this.dot(key)))
+  dots(keys: string[]) {
+    return BrailleChar.combine(keys.map((key) => this.dot(key)))
   }
 }

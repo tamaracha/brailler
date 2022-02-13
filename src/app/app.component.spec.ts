@@ -11,20 +11,22 @@ import { BrailleDirective } from './braille.directive'
 import { SelectionModelDirective } from './selection-model.directive'
 
 describe('AppComponent', () => {
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      imports: [ReactiveFormsModule, MatInputModule],
-      providers: [KeyConfigService],
-      declarations: [
-        AppComponent,
-        KeysFormComponent,
-        KeyInputComponent,
-        BrailleFormComponent,
-        BrailleDirective,
-        SelectionModelDirective
-      ]
-    }).compileComponents()
-  }))
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        imports: [ReactiveFormsModule, MatInputModule],
+        providers: [KeyConfigService],
+        declarations: [
+          AppComponent,
+          KeysFormComponent,
+          KeyInputComponent,
+          BrailleFormComponent,
+          BrailleDirective,
+          SelectionModelDirective
+        ]
+      }).compileComponents()
+    })
+  )
 
   it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent)
@@ -32,7 +34,7 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy()
   })
 
-  it('should have as title \'brailler\'', () => {
+  it("should have as title 'brailler'", () => {
     const fixture = TestBed.createComponent(AppComponent)
     const app = fixture.componentInstance
     expect(app.title).toEqual('Brailler')

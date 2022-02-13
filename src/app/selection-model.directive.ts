@@ -8,27 +8,32 @@ import { SelectionModel } from './selection-model'
 })
 export class SelectionModelDirective implements OnInit, OnDestroy {
   @Input('appSelectionModel') selectionModel: SelectionModel
-  constructor (private el: ElementRef) {}
-  ngOnInit () {
+  constructor(private el: ElementRef) {}
+  ngOnInit() {
     const viewModel = this.selectionModel.getViewModel()
-    if (viewModel) { this.setRange(viewModel) }
+    if (viewModel) {
+      this.setRange(viewModel)
+    }
     this.selectionModel.registerOnChangesHandler(this.setRange)
   }
 
   @HostListener('keyup', ['$event'])
-  onKeyup () {
+  onKeyup() {
     this.selectionModel.publishRange(this.getRange())
   }
 
-  getRange (): SelectionRange {
-    return { start: this.el.nativeElement.selectionStart, end: this.el.nativeElement.selectionEnd }
+  getRange(): SelectionRange {
+    return {
+      start: this.el.nativeElement.selectionStart,
+      end: this.el.nativeElement.selectionEnd
+    }
   }
 
-  setRange (range: SelectionRange) {
+  setRange(range: SelectionRange) {
     this.el.nativeElement.setSelectionRange(range.start, range.end)
   }
 
-  ngOnDestroy () {
+  ngOnDestroy() {
     if (this.selectionModel) {
       this.selectionModel.removeOnChangesHandler()
     }

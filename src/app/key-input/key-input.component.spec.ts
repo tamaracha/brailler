@@ -6,12 +6,13 @@ describe('KeyInputComponent', () => {
   let component: KeyInputComponent
   let fixture: ComponentFixture<KeyInputComponent>
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [KeyInputComponent]
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        declarations: [KeyInputComponent]
+      }).compileComponents()
     })
-      .compileComponents()
-  }))
+  )
 
   beforeEach(() => {
     fixture = TestBed.createComponent(KeyInputComponent)

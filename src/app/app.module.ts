@@ -29,4 +29,4 @@ import { KeyInputComponent } from './key-input/key-input.component'
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,4 +1,3 @@
 // import { SelectionModelDirective } from './selection-model.directive'
 
-describe('SelectionModelDirective', () => {
-})
+describe('SelectionModelDirective', () => {})
