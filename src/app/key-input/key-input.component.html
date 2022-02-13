@@ -2,6 +2,7 @@
   <label class="braille" [for]="inputId" [textContent]="label"></label>
 </div>
 <input
+  #field
   type="text"
   minlength="1"
   maxlength="1"
@@ -9,5 +10,5 @@
   [disabled]="disabled"
   [id]="inputId"
   [value]="value"
-  (input)="setValue($event.data)"
+  (input)="setValue(field.value)"
 />
