@@ -1,5 +1,5 @@
 import { Component, OnDestroy } from '@angular/core'
-import { FormBuilder, FormGroup } from '@angular/forms'
+import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms'
 import type { Subscription } from 'rxjs'
 import { KeyConfigService } from '../key-config.service'
 
@@ -9,9 +9,12 @@ import { KeyConfigService } from '../key-config.service'
   styleUrls: ['./keys-form.component.css']
 })
 export class KeysFormComponent implements OnDestroy {
-  keysForm: FormGroup
+  keysForm: UntypedFormGroup
   formSub: Subscription
-  constructor(private fb: FormBuilder, private keyConfig: KeyConfigService) {
+  constructor(
+    private fb: UntypedFormBuilder,
+    private keyConfig: KeyConfigService
+  ) {
     const keys = this.keyConfig.current
     const formConfig = {}
     Object.entries(keys).forEach(([key, value]) => {

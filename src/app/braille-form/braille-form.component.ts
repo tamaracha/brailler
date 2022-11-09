@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core'
-import { FormGroup, FormControl } from '@angular/forms'
+import { UntypedFormGroup, UntypedFormControl } from '@angular/forms'
 import { debounceTime } from 'rxjs/operators'
 import type { SelectionRange } from '../selection-range'
 import { SelectionModel } from '../selection-model'
@@ -12,8 +12,8 @@ import { SelectionModel } from '../selection-model'
 export class BrailleFormComponent implements OnInit, OnDestroy {
   label = 'Enter Braille here'
   hint = 'Compose braille characters by simultaniously pressing the dot keys.'
-  brailleForm = new FormGroup({
-    text: new FormControl('')
+  brailleForm = new UntypedFormGroup({
+    text: new UntypedFormControl('')
   })
 
   selectionModel = new SelectionModel({ start: 0, end: 0 })
