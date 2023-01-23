@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core'
-import { MatInputModule } from '@angular/material/input'
+import { MatLegacyInputModule as MatInputModule } from '@angular/material/legacy-input'
 
 @NgModule({
   declarations: [],

@@ -1,7 +1,7 @@
 /* eslint-env jasmine */
 import { TestBed, waitForAsync } from '@angular/core/testing'
 import { ReactiveFormsModule } from '@angular/forms'
-import { MatInputModule } from '@angular/material/input'
+import { MatLegacyInputModule as MatInputModule } from '@angular/material/legacy-input'
 import { AppComponent } from './app.component'
 import { KeyConfigService } from './key-config.service'
 import { KeysFormComponent } from './keys-form/keys-form.component'
@@ -11,22 +11,20 @@ import { BrailleDirective } from './braille.directive'
 import { SelectionModelDirective } from './selection-model.directive'
 
 describe('AppComponent', () => {
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        imports: [ReactiveFormsModule, MatInputModule],
-        providers: [KeyConfigService],
-        declarations: [
-          AppComponent,
-          KeysFormComponent,
-          KeyInputComponent,
-          BrailleFormComponent,
-          BrailleDirective,
-          SelectionModelDirective
-        ]
-      }).compileComponents()
-    })
-  )
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [ReactiveFormsModule, MatInputModule],
+      providers: [KeyConfigService],
+      declarations: [
+        AppComponent,
+        KeysFormComponent,
+        KeyInputComponent,
+        BrailleFormComponent,
+        BrailleDirective,
+        SelectionModelDirective
+      ]
+    }).compileComponents()
+  }))
 
   it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent)
